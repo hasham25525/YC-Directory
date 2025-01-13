@@ -32,18 +32,18 @@ const StartupCard = ({ post }: { post: StartupCardType }) => {
                     </Link>
                 </div>
                 <Link href={`/user/${author?._id}`}>
-                    <Image src="https://avatars.githubusercontent.com/u/99072327?s=96&v=4" alt={author?.name} width={48} height={48} className='rounded-full' />
+                    <Image src="https://avatars.githubusercontent.com/u/99072327?s=96&v=4" alt={author?.name || 'placeholder'} width={48} height={48} className='rounded-full' />
                 </Link>
             </div>
             <Link href={`/startup/${_id}`}>
-                <p className="startup-card-desc">
+                <p className="startup-card-desc line-clamp-2">
                     {description}
                 </p>
                 <img src={image} alt={title} className='startup-card_img' />
 
             </Link>
             <div className="flex-between gap-3 mt-5">
-                <Link href={`/?query=${category.toLocaleLowerCase()}`}>
+                <Link href={`/?query=${category?.toLocaleLowerCase()}`}>
                     <p className='text-16-medium'>{category}</p>
                 </Link>
                 <Button className='startup-card_btn' asChild>
